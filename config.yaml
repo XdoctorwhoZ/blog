@@ -1,0 +1,37 @@
+baseURL: 'http://example.org/'
+languageCode: 'en-us'
+title: 'My New Hugo Site'
+theme: 'PaperMod'
+
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+minify:
+    disableXML: true
+    minifyOutput: true
+
+
+
+Params:
+    
+    comments: true
+    ShowReadingTime: true
+
+    
+
+# profileMode:
+#     enabled: false
+#     title: ExampleSite
+#     subtitle: "This is subtitle"
+#     imageUrl: "<img location>"
+#     imageWidth: 120
+#     imageHeight: 120
+#     imageTitle: my image
+    # buttons:
+    #     - name: Posts
+    #       url: posts
+    #     - name: Tags
+    #       url: tags
+
