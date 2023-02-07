@@ -1,25 +1,41 @@
 baseURL: 'http://example.org/'
 languageCode: 'en-us'
-title: 'My New Hugo Site'
+title: 'XdoctorwhoZ Blog !'
 theme: 'PaperMod'
 
+
+
+enableInlineShortcodes: true
 enableRobotsTXT: true
 buildDrafts: false
 buildFuture: false
 buildExpired: false
+enableEmoji: true
+pygmentsUseClasses: true
+# googleAnalytics: UA-123-45
+
+
 
 minify:
     disableXML: true
-    minifyOutput: true
+    # minifyOutput: true
 
 
 
-Params:
+params:
     
+    env: production # to enable google analytics, opengraph, twitter-cards and schema.
+
     comments: true
     ShowReadingTime: true
 
+    cover:
+        linkFullImages: true
+        hidden: false # hide everywhere but not in structured data
+        hiddenInList: false # hide on list pages and home
+        hiddenInSingle: false # hide on single page
     
+
 
 # profileMode:
 #     enabled: false
