@@ -2,6 +2,9 @@
 title: "[FR] Comprendre la Transformation de Fourier Discrète (TFD)"
 date: 04/03/2022
 draft: false
+cover:
+    image: "./images/20181204A_banniere.png"
+    relative: true
 ---
 
 # Comprendre la Transformation de Fourier Discrète (TFD)
