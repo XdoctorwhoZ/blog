@@ -7,6 +7,9 @@ cover:
     image: images/20181204A_banniere.png
     alt: "cover"
     relative: true
+
+tags: ["français"]
+
 ---
 
 Si vous êtes ici, c’est que comme moi vous vous êtes retrouvé devant les termes : analyse fréquentielle, Fourier, TFD ou FFT. Et que cette rencontre vous a laissé avec plus de doutes que de réponses. Dans mon cas, je sais que j’avais étudié la transformé de Fourier il y a quelques temps de cela à l’école. Cependant c’était resté assez théorique et des années plus tard il m’a fallu ramer un moment sur Internet pour retisser la notion dans mon esprit. Cet article est un rapide tour d’horizon du sujet pour bien comprendre à quoi sert la transformé de Fourier.
