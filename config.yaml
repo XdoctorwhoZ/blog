@@ -33,7 +33,7 @@ params:
     profileMode:
         enabled: true
         title: XdoctorwhoZ Blog !
-        imageUrl: Cat03.jpg
+        imageUrl: avatar.png
         imageTitle: avatar
         # imageWidth: 120
         # imageHeight: 120
