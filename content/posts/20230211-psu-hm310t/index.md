@@ -11,15 +11,52 @@ cover:
 tags: ["lang-eng"]
 ---
 
-Good power supply for hobbyist. It is cheap and does the work.
+Good power supply for hobbyists. It is cheap and provides a way to control it from a computer but it has some drawbacks. Let's perform some checks.
 
-**Warning** if you want to use more than one HM310T on the same test bench: you will have to change the modbus unit id of the power supply to identify it correctly.
+## Brief
 
-## Known Issues
+| Catogory                            | Check | Reason                                                     |
+|-------------------------------------|-------|------------------------------------------------------------|
+| [Value for money](#value-for-money) | ✅     | ~125€ when this post was written for a good set of feature |
+| [USB Support](#usb-support)         | ❌     | Issue on detection + USB IDs badly customized              |
+| [Control Protocol](#control-protocol)         | ✅     | Issue on detection + USB IDs badly customized              |
 
-**WARNING! /dev/ttyUSBx not present in Ubuntu 22.04**
+## Value for money
 
-On Ubuntu 22, there is an USB conflict.
+
+
+## USB Support
+
+When you plug this power supply into your Linux, the first thing that you can do is the *lsusb* command to see if it has been detected.
+
+```bash
+lsusb
+# Bus YYY Device XXX: ID 1a86:7523 QinHeng Electronics CH340 serial converter
+```
+
+The first check shows that the USB module has NOT been customized, it is still the USB ids of the converter *QinHeng Electronics CH340 serial converter*. The second thing to check is to see if the *serial_short* USB has been modified.
+
+```bash
+udevadm info /dev/serial/by-id/usb-1a86_USB_Serial-if00-port0
+# ...
+# N: ttyUSB0
+# ...
+# E: MAJOR=188
+# E: MINOR=0
+# E: SUBSYSTEM=tty
+# ...
+# E: ID_VENDOR_ID=1a86
+# E: ID_MODEL_ID=7523
+# ...
+# E: ID_SERIAL=1a86_USB_Serial
+# ...
+```
+
+Ugly 🤮! there is no *serial_short*, which means that the ID_SERIAL will be the same if you plug multiple power supplies into your computer and you won't be able to identify it accurately.
+
+### Known Issues: /dev/ttyUSBx is not present in Ubuntu 22.04
+
+On Ubuntu 22, there is a USB conflict, follow this to fix it.
 
 ```bash
 # EDIT >>> 
@@ -31,9 +68,9 @@ ENV{PRODUCT}=="1a86/7523/*", ENV{BRLTTY_BRAILLE_DRIVER}="bm", GOTO="brltty_usb_r
 # reboot
 ```
 
-## Understand how you can drive it
+## Control Protocol
 
-This device use modbus protocol, here are the register map
+This device uses Modbus protocol, here are the register map
 
 **Modbus Registers**
 
@@ -76,5 +113,5 @@ DeviceAddr default = 1 MODBUS slave ID address
 
 - https://github.com/notkevinjohn/HM310P
 - https://github.com/hobbyquaker/hanmatek-hm310p
-- https://github.com/mckenm/HanmaTekPSUCmd/wiki/Registers (to get the modbus registers full list)
+- https://github.com/mckenm/HanmaTekPSUCmd/wiki/Registers (to get the Modbus registers full list)
 

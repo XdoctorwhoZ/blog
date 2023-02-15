@@ -22,7 +22,6 @@ minify:
     # minifyOutput: true
 
 
-
 params:
     
     env: production # to enable google analytics, opengraph, twitter-cards and schema.
@@ -47,19 +46,3 @@ params:
         hiddenInList: false # hide on list pages and home
         hiddenInSingle: false # hide on single page
     
-
-
-# profileMode:
-#     enabled: false
-#     title: ExampleSite
-#     subtitle: "This is subtitle"
-#     imageUrl: "<img location>"
-#     imageWidth: 120
-#     imageHeight: 120
-#     imageTitle: my image
-    # buttons:
-    #     - name: Posts
-    #       url: posts
-    #     - name: Tags
-    #       url: tags
-
