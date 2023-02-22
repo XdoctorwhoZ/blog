@@ -44,3 +44,12 @@ The differences will be saved in $WORKDIR/fragment.cfg
 
 You have to copy the $WORKDIR/fragment.cfg in your layer directory and in the recipe (bbappend) as in the example below. 
 
+
+## Create patch of the kernel
+
+```bash
+cd kernel-sources
+git format-patch -x
+# (replace x by the number of commits you want to extract a patch):
+```
+
