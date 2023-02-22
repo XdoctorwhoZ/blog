@@ -53,3 +53,9 @@ git format-patch -x
 # (replace x by the number of commits you want to extract a patch):
 ```
 
+
+```bash
+recipetool  appendsrcfile  ../meta-my-layer/  virtual/kernel  001-xxxx.patch 
+bitbake  -c  clean  virtual/kernel 
+bitbake  my-image
+```
