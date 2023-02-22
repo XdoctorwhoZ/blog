@@ -47,6 +47,10 @@ You have to copy the $WORKDIR/fragment.cfg in your layer directory and in the re
 
 ## Create patch of the kernel
 
+clone kernel from main repo
+
+do modifications
+
 ```bash
 cd kernel-sources
 git format-patch -x
