@@ -4,7 +4,8 @@ title: 'XdoctorwhoZ Blog !'
 theme: 'PaperMod'
 
 
-  
+googleAnalytics: G-FE43Y8FBBC
+
 
 enableInlineShortcodes: true
 enableRobotsTXT: true
@@ -13,14 +14,10 @@ buildFuture: false
 buildExpired: false
 enableEmoji: true
 pygmentsUseClasses: true
-# googleAnalytics: UA-123-45
-
-
 
 minify:
     disableXML: true
     # minifyOutput: true
-
 
 
 params:
@@ -33,7 +30,7 @@ params:
     profileMode:
         enabled: true
         title: XdoctorwhoZ Blog !
-        imageUrl: Cat03.jpg
+        imageUrl: avatar.png
         imageTitle: avatar
         # imageWidth: 120
         # imageHeight: 120
@@ -47,19 +44,3 @@ params:
         hiddenInList: false # hide on list pages and home
         hiddenInSingle: false # hide on single page
     
-
-
-# profileMode:
-#     enabled: false
-#     title: ExampleSite
-#     subtitle: "This is subtitle"
-#     imageUrl: "<img location>"
-#     imageWidth: 120
-#     imageHeight: 120
-#     imageTitle: my image
-    # buttons:
-    #     - name: Posts
-    #       url: posts
-    #     - name: Tags
-    #       url: tags
-

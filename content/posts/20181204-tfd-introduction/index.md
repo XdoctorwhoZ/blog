@@ -4,12 +4,11 @@ date: 04/12/2018
 draft: false
 
 cover:
-    image: images/20181204A_banniere.png
+    image: cover.png
     alt: "cover"
     relative: true
 
-tags: ["français"]
-
+tags: ["lang-fr"]
 ---
 
 Si vous êtes ici, c’est que comme moi vous vous êtes retrouvé devant les termes : analyse fréquentielle, Fourier, TFD ou FFT. Et que cette rencontre vous a laissé avec plus de doutes que de réponses. Dans mon cas, je sais que j’avais étudié la transformé de Fourier il y a quelques temps de cela à l’école. Cependant c’était resté assez théorique et des années plus tard il m’a fallu ramer un moment sur Internet pour retisser la notion dans mon esprit. Cet article est un rapide tour d’horizon du sujet pour bien comprendre à quoi sert la transformé de Fourier.
@@ -154,7 +153,8 @@ Maintenant, je pense que l’on a fait le tour des questions sur cette formule. 
 
 ## Le petit code :-)
 
-Pour m’entrainer et rendre ça un peu plus concret, j’ai fait un petit programme sous Qt. Vous pouvez le télécharger ici:
+Pour m’entrainer et rendre ça un peu plus concret, j’ai fait un petit programme sous Qt. Vous pouvez le télécharger [ici](https://github.com/XdoctorwhoZ/comprendre-la-tfd):
+
 
 ![20181204A_020](./images/20181204A_020.png "20181204A_020")
 
