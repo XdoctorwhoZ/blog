@@ -4,7 +4,8 @@ title: 'XdoctorwhoZ Blog !'
 theme: 'PaperMod'
 
 
-  
+googleAnalytics: G-FE43Y8FBBC
+
 
 enableInlineShortcodes: true
 enableRobotsTXT: true
@@ -13,9 +14,6 @@ buildFuture: false
 buildExpired: false
 enableEmoji: true
 pygmentsUseClasses: true
-# googleAnalytics: UA-123-45
-
-
 
 minify:
     disableXML: true

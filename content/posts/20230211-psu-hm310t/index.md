@@ -19,11 +19,11 @@ Good power supply for hobbyists. It is cheap and provides a way to control it fr
 |-------------------------------------|-------|------------------------------------------------------------|
 | [Value for money](#value-for-money) | ✅     | ~125€ when this post was written for a good set of feature |
 | [USB Support](#usb-support)         | ❌     | Issue on detection + USB IDs badly customized              |
-| [Control Protocol](#control-protocol)         | ✅     | Issue on detection + USB IDs badly customized              |
+| [Control Protocol](#control-protocol) | 🟨     | Modbus is ok but register functions are sometimes mysterious and undocumented for advanced usages |
 
 ## Value for money
 
-
+When I bought this power supply it cost ~125€, and performed everything I needed as a hobbyist. But it seems that it is not a good choice for professional use.
 
 ## USB Support
 
@@ -78,16 +78,16 @@ DeviceAddr default = 1 MODBUS slave ID address
 
 | Name           | Address     | Mode | Description                                                                    |
 | -------------- | ----------- | ---- | ------------------------------------------------------------------------------ |
-| PS_PowerSwitch | 0x01        | R/W  | 0/1  Power output/stop setting                                                 |
+| PS_PowerSwitch | 0x01        | RW   | 0/1  Power output/stop setting                                                 |
 | PS_ProtectStat | 0x02        | R    | Bit mask  SCP:OTP:OPP:OCP:OVP                                                  |
 | PS_Model       | 0x03        | R    | 3010 (HM310P)                                                                  |
 | PS_ClassDetial | 0x04        | R    | value 0x4b58 (19280)                                                           |
-| PS_Voltage     | 0x0010 (16) | R    | 2Decimal Voltage display value                                                 |
-| PS_Current     | 0x0011      | R    | 3Decimal Current display value                                                 |
-| PS_PowerH      | 0x0012      | R    | 3Decimal Power display value 0012H(high 16 bit)/ 0013H( low 16 bit )           |
-| PS_PowerL      | 0x0013      | R    | 3Decimal Power display value 0012H(high 16 bit)/ 0013H( low 16 bit )           |
+| PS_Voltage     | 0x0010 (16) | R    | 2Decimal Voltage value (real-time value displayed when power supply is on)     |
+| PS_Current     | 0x0011      | R    | 3Decimal Current value (real-time value displayed when power supply is on)     |
+| PS_PowerH      | 0x0012      | R    | 3Decimal Power value 0012H(high 16 bit)/ 0013H( low 16 bit )...                |
+| PS_PowerL      | 0x0013      | R    | ...(real-time value displayed when power supply is on)                         |
 | PS_PowerCal    | 0x0014      | ?    |                                                                                |
-| PS_ProtectVol  | 0x0020      | RW   | 2Decimal OVP Set over volate protect value                                     |
+| PS_ProtectVol  | 0x0020      | RW   | 2Decimal OVP Set over voltage protect value                                    |
 | PS_ProtectCur  | 0x0021      | RW   | 2Decimal OCP Set over current protect value                                    |
 | PS_ProtectPow  | 0x0022      | RW   | 2Decimal OPP Set over power protect value 0022H(high 16 bit)，023H(low 16 bit) |
 | PS_SetVoltage  | 0x0030 (48) | RW   | 2Dec Set voltage                                                               |
@@ -97,7 +97,7 @@ DeviceAddr default = 1 MODBUS slave ID address
 | PS_defaultShow | 0x8802      | ?    |                                                                                |
 | PS_SCP         | 0x8803      | ?    |                                                                                |
 | PS_Buzzer      | 0x8804      | RW   | Buzzer enablement                                                              |
-| PS_Device      | 0x9999      | R/W  | Set communication address - SlaveID : 1 default                                |
+| PS_Device      | 0x9999      | RW   | Set communication address - SlaveID : 1 default                                |
 | PS_SDTime      | 0xCCCC      | ?    |                                                                                |
 | PS_UL          | 0xC110      | ?    | 11d / xC111 = 1                                                                |
 | PS_UH          | 0xC11E      | ?    | 3200d / xC11F = 1                                                              |
@@ -108,6 +108,21 @@ DeviceAddr default = 1 MODBUS slave ID address
 | PSM_TimeSpan   | 0x1002      | R?   |                                                                                |
 | PSM_Enable     | 0x1003      | ?    |                                                                                |
 | PSM_NextOffset | 0x10        | ?    |                                                                                |
+
+### ON/OFF ✅
+
+Use *PS_PowerSwitch* to enable or disable the output
+
+### Voltage and Current => Goal Vs Reel 🟨
+
+If you want to set the voltage and the current, use PS_SetVoltage and PS_SetCurrent. Those registers set the goal values.
+But if you want the real-time values use PS_Voltage and PS_Current.
+
+For example, you can set the current goal value with PS_SetCurrent. This will set the maximum current that the board will get. But to read the real-time consumption of the board, use PS_Current.
+
+### OVP/OCP ❌
+
+I did not find how to enable or disable OVP and OCP through Modbus registers
 
 **Sources**
 

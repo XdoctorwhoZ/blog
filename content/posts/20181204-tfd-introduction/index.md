@@ -153,7 +153,8 @@ Maintenant, je pense que l’on a fait le tour des questions sur cette formule. 
 
 ## Le petit code :-)
 
-Pour m’entrainer et rendre ça un peu plus concret, j’ai fait un petit programme sous Qt. Vous pouvez le télécharger ici:
+Pour m’entrainer et rendre ça un peu plus concret, j’ai fait un petit programme sous Qt. Vous pouvez le télécharger [ici](https://github.com/XdoctorwhoZ/comprendre-la-tfd):
+
 
 ![20181204A_020](./images/20181204A_020.png "20181204A_020")
 
